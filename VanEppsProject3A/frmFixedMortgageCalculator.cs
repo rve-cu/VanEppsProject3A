@@ -43,13 +43,13 @@ namespace VanEppsProject3A
                 // Only allow positive values for interest rate
                 if (annualRate <= 0)
                 {
-                    throw new ArithmeticException("Interest rate cannot be zero or negative. Please enter a positive value or use the Interest Rate Calculator form.");
+                    throw new Exception("Interest rate cannot be zero or negative. Please enter a positive value or use the Interest Rate Calculator form.");
                 }
 
                 // Only allow positive values for principal
                 if (principalAmount <= 0)
                 {
-                    throw new ArithmeticException("Principal cannot be zero or negative. Please enter a positive value.");
+                    throw new Exception("Principal cannot be zero or negative. Please enter a positive value.");
                 }
 
                 // Convert interest rate and term length to monthly amounts
@@ -85,12 +85,6 @@ namespace VanEppsProject3A
                 MessageBox.Show(
                     "Cannot divide by zero. Please enter a value greater than zero.",
                     "Division By Zero Error");
-            }
-            catch (ArithmeticException ex)
-            {
-                MessageBox.Show(
-                    ex.Message,
-                    "Arithmetic Error");
             }
             catch (Exception ex)
             {

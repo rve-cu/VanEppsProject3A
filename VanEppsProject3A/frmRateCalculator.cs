@@ -27,21 +27,16 @@ namespace VanEppsProject3A
                 // Convert input
                 int creditScore = Convert.ToInt32(txtCreditScore.Text);
 
-                if (creditScore == 0)
-                {
-                    throw new DivideByZeroException();
-                }
-
                 // Only allow credit scores between 300 and 850
-                if (creditScore < 300 || creditScore > 850)
+                if (creditScore > 0 && (creditScore < 300 || creditScore > 850))
                 {
                     throw new Exception("Invalid credit score. Please enter a value between 300 and 850.");
                 }
 
                 // Determine interest rate based on credit score
-                double interestRate = 0; // Initialize interest rate var
+                decimal interestRate = 0; // Initialize interest rate var
                 // Arbitrarily determine interest rate by dividing 3000 by credit score
-                interestRate = 3000.0 / creditScore;
+                interestRate = 3000.0m / creditScore;
 
                 // Format and display calculated value
                 txtInterestRate.Text = interestRate.ToString("f3");
@@ -63,12 +58,6 @@ namespace VanEppsProject3A
                 MessageBox.Show(
                     "Cannot divide by zero. Please enter a value greater than zero.",
                     "Division By Zero Error");
-            }
-            catch (ArithmeticException)
-            {
-                MessageBox.Show(
-                    "Please enter a smaller, positive numeric value.",
-                    "Arithmetic Error");
             }
             catch (Exception ex)
             {
